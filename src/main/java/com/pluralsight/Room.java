@@ -42,13 +42,13 @@ public class Room {
 //        //otherwise its not avaialable
 //        return false;
 
-//        return !this.isOccupied() && this.isDirty();
+        return !this.isOccupied() && !this.isDirty();
 
-        if(this.isDirty() && this.isOccupied()){
-            return false;
-        }else {
-            return true;
-        }
+//        if(this.isDirty() && this.isOccupied()){
+//            return false;
+//        }else {
+//            return true;
+//        }
 
     }
 
