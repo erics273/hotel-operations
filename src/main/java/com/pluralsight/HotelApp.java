@@ -82,6 +82,30 @@ public class HotelApp {
 
         System.out.println();
 
+        Employee eric = new Employee(123, "eric", "the boss", 65, 20);
+
+        System.out.println(eric.getTotalPay());
+        System.out.println(eric.getRegularHours());
+
+        eric.punchIn(1);
+        eric.punchOut(5);
+
+        System.out.println(eric.getTotalPay());
+        System.out.println(eric.getRegularHours());
+
+
+        eric.punchTimeCard(8, "in");
+        eric.punchTimeCard(10, "out");
+
+        System.out.println(eric.getTotalPay());
+        System.out.println(eric.getRegularHours());
+
+        eric.punchTimeCard(2, 7);
+
+        System.out.println(eric.getTotalPay());
+        System.out.println(eric.getRegularHours());
+
+
     }
 
 }

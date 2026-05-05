@@ -12,6 +12,7 @@ public class Room {
         this.price = price;
         this.isOccupied = isOccupied;
         this.isDirty = isDirty;
+
     }
 
     public int getNumberOfBeds() {
@@ -49,6 +50,25 @@ public class Room {
 //        }else {
 //            return true;
 //        }
+
+    }
+
+    public void checkOut(){
+        this.cleanroom();
+        this.isOccupied = false;
+    }
+
+    public void cleanroom(){
+        this.isDirty = false;
+    }
+
+    public void checkIn(){
+        if(this.isAvailable()){
+            this.isOccupied = true;
+            this.isDirty = true;
+        }else{
+            System.out.println("sorry, not available");
+        }
 
     }
 
