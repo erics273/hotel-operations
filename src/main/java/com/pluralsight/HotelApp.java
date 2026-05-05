@@ -106,6 +106,16 @@ public class HotelApp {
         System.out.println(eric.getRegularHours());
 
 
+        //since the would prodce the same hour and ultimately not add to hoursworked
+        //im called the method where we pass it a time then
+        //calling punchOut that figures the time out
+        eric.punchIn(2);
+        eric.punchOut();
+
+        System.out.println(eric.getTotalPay());
+        System.out.println(eric.getRegularHours());
+
+
     }
 
 }
