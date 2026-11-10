@@ -30,4 +30,16 @@ class HotelTest {
         assertEquals(2, hotel.getAvailableSuites());
     }
 
+    @Test
+    public void bookroom_should_fail_if_no_suites_available(){
+        //arrange
+        Hotel hotel = new Hotel("Grand Hotel", 5, 20);
+
+        //act
+        boolean booked =  hotel.bookRoom(10, true);
+
+        //assert
+        assertFalse(booked);
+    }
+
 }
