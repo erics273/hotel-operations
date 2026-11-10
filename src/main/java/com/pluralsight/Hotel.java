@@ -24,20 +24,33 @@ public class Hotel {
 
     public boolean bookRoom(int roomCount, boolean suite){
 
-        //figure out if they are booking suite or not
+        boolean booked = false;
 
-        //if its a suite see if any are available and return true if there were and we booked it
-        //probaly need to update booked suites if succesfull
+        if(suite){
 
-        return false;
+            if(getAvailableSuites() >= roomCount){
+                this.bookedSuites += roomCount;
+                booked = true;
+            }
+
+        }else{
+            if(getAvailableRooms() >= roomCount){
+                this.bookedRooms += roomCount;
+                booked = true;
+            }
+        }
+
+        return booked;
     }
 
     public int getAvailableRooms() {
-        //figure out how many room are available by working with bookedRooms vs numberofrooms
-        return 0;
+        int availableRooms = numberOfRooms - bookedRooms;
+        return (availableRooms < 0) ? 0 : availableRooms;
     }
+
     public int getAvailableSuites(){
         //figure out how many suites are available by working with bookedSuites vs numberofsuites
-        return 0;
+        int availableSuites = numberOfSuites - bookedSuites;
+        return (availableSuites < 0) ? 0 : availableSuites;
     }
 }
