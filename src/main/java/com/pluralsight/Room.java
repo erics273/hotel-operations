@@ -3,16 +3,20 @@ package com.pluralsight;
 public class Room {
 
     private int numberOfBeds;
-    private double price;
     private boolean occupied;
     private boolean dirty;
+    private String type;
 
 
-    public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
+    public Room(int numberOfBeds, boolean occupied, boolean dirty,  String type) {
         this.numberOfBeds = numberOfBeds;
-        this.price = price;
         this.occupied = occupied;
         this.dirty = dirty;
+        this.type = type;
+    }
+
+    public void cleanRoom(){
+        this.dirty = false;
     }
 
     //derived getter using other properties on the class
@@ -21,11 +25,13 @@ public class Room {
         //--fancy one liner
         // return !dirty && !occupied;
 
-        //full if statement
+        //full if statement return true if not dirty and not occupied
         if(dirty == false && occupied == false) {
+            //room available
             return true;
         }
 
+        //room is dirty and occupied so its not available
         return false;
 
     }
@@ -39,6 +45,18 @@ public class Room {
     }
 
     public double getPrice() {
+        double price = 0;
+
+        //if king, price is 139
+        if(type.equalsIgnoreCase("king")){
+            price += 139;
+        }
+
+        //if double  price is 124
+        if(type.equalsIgnoreCase("double")){
+            price += 124;
+        }
+
         return price;
     }
 
