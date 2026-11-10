@@ -34,10 +34,12 @@ public class Hotel {
             }
 
         }else{
+
             if(getAvailableRooms() >= roomCount){
                 this.bookedRooms += roomCount;
                 booked = true;
             }
+
         }
 
         return booked;
