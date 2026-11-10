@@ -27,6 +27,13 @@ public class HotelApp {
         //print the reservation total
         System.out.println("The total fort Reservation is: " + theReservataion.getReservationTotal());
 
+        Room room6 = new Room(1, true, true, "King");
+
+        theReservataion.addRoom(room6);
+
+        //print the reservation total
+        System.out.println("The total fort Reservation is: " + theReservataion.getReservationTotal());
+
     }
 
 }

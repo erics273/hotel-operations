@@ -14,6 +14,15 @@ public class Reservation {
         this.rooms = rooms;
     }
 
+    public Reservation(int numberOfNights, boolean weekend) {
+        this.numberOfNights = numberOfNights;
+        this.weekend = weekend;
+    }
+
+    public void addRoom(Room room) {
+        this.rooms.add(room);
+    }
+
 
     public int getNumberOfNights() {
         return numberOfNights;
