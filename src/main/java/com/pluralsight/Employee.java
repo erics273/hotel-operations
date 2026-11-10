@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Employee {
     private int employeeId;
     private String name;
@@ -58,6 +61,14 @@ public class Employee {
     public void punchTimeCard(int start, int endTime){
         this.punchIn(start);
         this.punchOut(endTime);
+    }
+
+    public void punchIn() {
+
+    }
+
+    public void punchOut() {
+
     }
 }
 
