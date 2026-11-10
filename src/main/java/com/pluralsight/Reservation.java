@@ -1,16 +1,17 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class Reservation {
 
     private int numberOfNights;
     private boolean weekend;
-    private Room room;
+    private ArrayList<Room> rooms;
 
-    public Reservation(boolean weekend, int numberOfNights, Room room) {
-        this.room = room;
+    public Reservation(boolean weekend, int numberOfNights, ArrayList<Room> rooms) {
         this.weekend = weekend;
         this.numberOfNights = numberOfNights;
-        this.room = room;
+        this.rooms = rooms;
     }
 
 
@@ -37,8 +38,12 @@ public class Reservation {
     //get price
     public double getPrice() {
 
-        //get thebase price for the room from the room
-        double price = room.getPrice();
+        double price = 0;
+
+        //get thebase price for the rooms from the room
+        for(Room room :  rooms){
+            price += room.getPrice();
+        }
 
         //if weekend +10%
         if(weekend){
