@@ -1,7 +1,6 @@
 package com.pluralsight;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Employee {
     private int employeeId;
@@ -64,11 +63,13 @@ public class Employee {
     }
 
     public void punchIn() {
-
+        int currentHour = LocalDateTime.now().getHour();
+        this.punchIn(currentHour);
     }
 
     public void punchOut() {
-
+        int currentHour = LocalDateTime.now().getHour();
+        this.punchOut(currentHour);
     }
 }
 
