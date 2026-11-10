@@ -45,4 +45,18 @@ public class Room {
     public int getNumberOfBeds() {
         return numberOfBeds;
     }
+
+    public void cleanRoom(){
+        this.dirty = false;
+    }
+
+    public void checkIn(){
+        this.occupied = true;
+        this.dirty = true;
+    }
+
+    public void checkOut(){
+        this.occupied = false;
+        this.cleanRoom();
+    }
 }
