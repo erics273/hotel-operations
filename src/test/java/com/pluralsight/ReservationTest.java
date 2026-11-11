@@ -2,6 +2,8 @@ package com.pluralsight;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReservationTest {
@@ -9,7 +11,7 @@ class ReservationTest {
     @Test
     public void getPrice_should_be_accurate_for_king_suite_no_weekend(){
         //arrange
-        Reservation theReservation = new Reservation("king", 1, false);
+        Reservation theReservation = new Reservation(false, 1, null);
 
         //act
         double price = theReservation.getPrice();
@@ -21,7 +23,9 @@ class ReservationTest {
     @Test
     public void getPrice_should_be_accurate_for_king_suite_with_weekend(){
         //arrange
-        Reservation theReservation = new Reservation("king", 1, true);
+        Reservation theReservation = new Reservation(true, 1, new ArrayList<Room>());
+        Room newRoom = new Room(1, true, true, "King");
+        theReservation.addRoom(newRoom);
 
         //act
         double price = theReservation.getPrice();
@@ -33,7 +37,9 @@ class ReservationTest {
     @Test
     public void getReservationTotal_should_be_accurate_for_king_suite_with_weekend_3_nights(){
         //arrange
-        Reservation theReservation = new Reservation("king", 3, true);
+        Reservation theReservation = new Reservation(true, 3, new ArrayList<Room>());
+        Room newRoom = new Room(1, true, true, "King");
+        theReservation.addRoom(newRoom);
 
         //act
         double total = Math.round(theReservation.getReservationTotal());
