@@ -79,7 +79,7 @@ class RoomTest {
         boolean isAvailable = someRoom.isAvailable();
 
         //assert
-        assertTrue(someRoom.isAvailable());
+        assertTrue(isAvailable);
 
     }
 
@@ -92,7 +92,7 @@ class RoomTest {
         boolean isAvailable = someRoom.isAvailable();
 
         //assert
-        assertFalse(someRoom.isAvailable());
+        assertFalse(isAvailable);
 
     }
 
@@ -105,7 +105,7 @@ class RoomTest {
         boolean isAvailable = someRoom.isAvailable();
 
         //assert
-        assertFalse(someRoom.isAvailable());
+        assertFalse(isAvailable);
 
     }
 
