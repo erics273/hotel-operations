@@ -42,4 +42,32 @@ class HotelTest {
         assertFalse(booked);
     }
 
+    @Test
+    public void bookroom_should_fail_if_no_rooms_available(){
+
+        //arrange
+        Hotel hotel = new Hotel("Grand Hotel", 5, 20);
+
+        //act
+        boolean booked =  hotel.bookRoom(35, false);
+
+        //assert
+        assertFalse(booked);
+
+    }
+
+    @Test
+    public void bookroom_should_succeed_if_suites_available(){
+
+        //arrange
+        Hotel hotel = new Hotel("Grand Hotel", 5, 20);
+
+        //act
+        boolean booked =  hotel.bookRoom(1, true);
+
+        //assert
+        assertTrue(booked);
+
+    }
+
 }
