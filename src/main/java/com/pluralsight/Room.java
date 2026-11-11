@@ -64,10 +64,6 @@ public class Room {
         return numberOfBeds;
     }
 
-    public void cleanRoom(){
-        this.dirty = false;
-    }
-
     public void checkIn(){
         this.occupied = true;
         this.dirty = true;
