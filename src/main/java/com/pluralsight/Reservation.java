@@ -49,7 +49,7 @@ public class Reservation {
     //get price
     public BigDecimal getPrice() {
 
-        BigDecimal price = BigDecimal.ZERO.setScale(2, RoundingMode.UP);
+        BigDecimal price = BigDecimal.ZERO;
 
         //get thebase price for the rooms from the room
         for(Room room :  rooms){
@@ -62,7 +62,7 @@ public class Reservation {
         }
 
         //return price
-        return price;
+        return price.setScale(2, RoundingMode.HALF_UP);
     }
 
     //Gets the price based on the numeber of nights

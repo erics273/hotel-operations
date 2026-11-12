@@ -21,7 +21,7 @@ class ReservationTest {
         BigDecimal price = theReservation.getPrice();
 
         //assert
-        assertEquals(0, price.compareTo(BigDecimal.valueOf(139.00)));
+        assertEquals(new BigDecimal("139.00"), price);
     }
 
     @Test
@@ -35,7 +35,7 @@ class ReservationTest {
         BigDecimal price = theReservation.getPrice();
 
         //assert
-        assertEquals(0, price.compareTo(BigDecimal.valueOf(152.90)));
+        assertEquals(new BigDecimal("152.90"), price);
     }
 
     @Test
@@ -49,7 +49,7 @@ class ReservationTest {
         BigDecimal total = theReservation.getReservationTotal();
 
         //assert
-        assertEquals(0, total.compareTo(BigDecimal.valueOf(458.70)));
+        assertEquals(new BigDecimal("458.70"), total);
     }
 
 }
