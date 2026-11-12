@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Reservation {
@@ -45,18 +47,18 @@ public class Reservation {
      */
 
     //get price
-    public double getPrice() {
+    public BigDecimal getPrice() {
 
-        double price = 0;
+        BigDecimal price = BigDecimal.ZERO.setScale(2, RoundingMode.UP);
 
         //get thebase price for the rooms from the room
         for(Room room :  rooms){
-            price += room.getPrice();
+            price = price.add(room.getPrice());
         }
 
         //if weekend +10%
         if(weekend){
-            price *= 1.10;
+            price = price.multiply(BigDecimal.valueOf(1.10));
         }
 
         //return price
@@ -64,9 +66,9 @@ public class Reservation {
     }
 
     //Gets the price based on the numeber of nights
-    public double getReservationTotal() {
+    public BigDecimal getReservationTotal() {
 
-        return getPrice() *  numberOfNights;
+        return getPrice().multiply(BigDecimal.valueOf(numberOfNights));
 
     }
 

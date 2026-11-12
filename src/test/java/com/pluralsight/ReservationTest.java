@@ -2,6 +2,8 @@ package com.pluralsight;
 
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,13 +13,15 @@ class ReservationTest {
     @Test
     public void getPrice_should_be_accurate_for_king_suite_no_weekend(){
         //arrange
-        Reservation theReservation = new Reservation(false, 1, null);
+        Reservation theReservation = new Reservation(false, 1, new ArrayList<Room>());
+        Room newRoom = new Room(1, true, true, "King");
+        theReservation.addRoom(newRoom);
 
         //act
-        double price = theReservation.getPrice();
+        BigDecimal price = theReservation.getPrice();
 
         //assert
-        assertEquals(139, price);
+        assertEquals(0, price.compareTo(BigDecimal.valueOf(139.00)));
     }
 
     @Test
@@ -28,10 +32,10 @@ class ReservationTest {
         theReservation.addRoom(newRoom);
 
         //act
-        double price = theReservation.getPrice();
+        BigDecimal price = theReservation.getPrice();
 
         //assert
-        assertEquals(152.9, price);
+        assertEquals(0, price.compareTo(BigDecimal.valueOf(152.90)));
     }
 
     @Test
@@ -42,10 +46,10 @@ class ReservationTest {
         theReservation.addRoom(newRoom);
 
         //act
-        double total = Math.round(theReservation.getReservationTotal());
+        BigDecimal total = theReservation.getReservationTotal();
 
         //assert
-        assertEquals(459, total);
+        assertEquals(0, total.compareTo(BigDecimal.valueOf(458.70)));
     }
 
 }

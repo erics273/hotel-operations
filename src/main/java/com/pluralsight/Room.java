@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
+
 public class Room {
 
     private int numberOfBeds;
@@ -44,17 +46,17 @@ public class Room {
         return occupied;
     }
 
-    public double getPrice() {
-        double price = 0;
+    public BigDecimal getPrice() {
+        BigDecimal price = BigDecimal.ZERO;
 
         //if king, price is 139
         if(type.equalsIgnoreCase("king")){
-            price += 139;
+            price = price.add(BigDecimal.valueOf(139)) ;
         }
 
         //if double  price is 124
         if(type.equalsIgnoreCase("double")){
-            price += 124;
+            price = price.add(BigDecimal.valueOf(124)) ;
         }
 
         return price;
